@@ -1,0 +1,23 @@
+# -----------------------------------------------------------
+# docker-compose.yml para Coolify — Landing Page IVC Soft House
+# Servido por Nginx (estático, HTML puro)
+# -----------------------------------------------------------
+version: "3.8"
+
+services:
+  ivc-landing:
+    image: nginx:alpine
+    container_name: ivc-landing-page
+    restart: unless-stopped
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    expose:
+      - "80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ivc-landing.rule=Host(`ivcsofthouse.com.br`) || Host(`www.ivcsofthouse.com.br`)"
+      - "traefik.http.routers.ivc-landing.entrypoints=web"
+      - "traefik.http.routers.ivc-landing.tls=true"
+      - "traefik.http.routers.ivc-landing.tls.certresolver=le"
+      - "traefik.http.services.ivc-landing.loadbalancer.server.port=80"
