@@ -10,7 +10,7 @@ services:
     container_name: ivc-landing-page
     restart: unless-stopped
     expose:
-      - "80"
+      - "80:80"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.ivc-landing.rule=Host(`ivcsofthouse.com.br`) || Host(`www.ivcsofthouse.com.br`)"
