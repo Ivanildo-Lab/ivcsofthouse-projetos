@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IVC Soft House | Sistemas de Gestão e Soluções Web</title>
-  <meta name="description" content="Conheça os sistemas de gestão desenvolvidos pela IVC Soft House: ERP, e-commerce, restaurante, hotelaria, ordens de serviço, clube campestre, metalurgia e muito mais." />
+  <meta name="description" content="Conheça os sistemas de gestão desenvolvidos pela IVC Soft House: ERP, e-commerce, restaurante, hotelaria, ordens de serviço e muito mais. Desenvolvemos sob medida para o seu negócio." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --primary:#0f766e;
@@ -18,10 +18,13 @@
       --text:#0f172a;
       --muted:#64748b;
       --border:#e2e8f0;
-      --shadow:0 10px 30px -10px rgba(2,6,23,0.08);
-      --radius:12px;
+      --shadow:0 20px 40px -10px rgba(2,6,23,0.08);
+      --shadow-lg:0 30px 60px -15px rgba(2,6,23,0.12);
+      --radius:16px;
       --max:1200px;
+      --transition:all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -29,93 +32,164 @@
       color:var(--text);
       background:var(--bg);
       line-height:1.6;
+      overflow-x:hidden;
     }
     a{text-decoration:none;color:inherit}
     img{max-width:100%;display:block}
-    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .container{max-width:var(--max);margin:0 auto;padding:0 24px}
     h1,h2,h3,h4{font-family:'Poppins','Inter',sans-serif;line-height:1.2}
-    .section{padding:70px 0}
-    .section-title{font-size:2rem;font-weight:700;color:var(--text);margin-bottom:12px;text-align:center}
-    .section-sub{color:var(--muted);text-align:center;max-width:640px;margin:0 auto 48px;font-size:1.05rem}
+    .section{padding:100px 0}
+    .section-title{font-size:2.5rem;font-weight:800;color:var(--text);margin-bottom:16px;text-align:center;letter-spacing:-0.5px}
+    .section-sub{color:var(--muted);text-align:center;max-width:680px;margin:0 auto 60px;font-size:1.15rem}
+
+    /* Background ornamental */
+    .orb{
+      position:fixed;
+      border-radius:50%;
+      filter:blur(80px);
+      z-index:-1;
+      opacity:0.6;
+      pointer-events:none;
+    }
+    .orb-1{top:-10%;left:-10%;width:600px;height:600px;background:var(--accent);}
+    .orb-2{bottom:-10%;right:-10%;width:700px;height:700px:background:var(--primary);}
 
     /* Navbar */
-    nav{position:sticky;top:0;z-index:50;background:rgba(248,250,252,0.8);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-    .nav-wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{display:flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:700;font-size:1.25rem;color:var(--primary)}
-    .brand .mark{width:28px;height:28px;background:var(--primary);border-radius:8px;display:grid;place-items:center;color:#fff;font-size:1rem}
-    .nav-links{display:none;gap:28px}
-    .nav-links a{font-weight:500;color:var(--muted);font-size:0.95rem;transition:color .2s}
-    .nav-links a:hover,.nav-links a:focus{color:var(--primary)}
-    .btn-menu{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
-    .btn-menu span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
-    .btn-primary{
-      display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--primary);color:#fff;border-radius:8px;font-weight:600;font-size:0.95rem;transition:background .2s,border .2s;border:1px solid transparent
+    nav{
+      position:sticky;top:0;z-index:100;
+      background:rgba(248,250,252,0.7);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border);
     }
-    .btn-primary:hover{background:var(--primary-dark)}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;align-items:center;gap:12px;font-family:'Poppins';font-weight:800;font-size:1.35rem;color:var(--primary)}
+    .brand .mark{width:34px;height:34px;background:var(--primary);border-radius:10px;display:grid;place-items:center;color:#fff;font-size:1.1rem;box-shadow:0 4px 12px rgba(15,118,110,0.3)}
+    .nav-links{display:flex;gap:32px}
+    .nav-links a{font-weight:500;color:var(--muted);font-size:0.95rem;transition:var(--transition)}
+    .nav-links a:hover,.nav-links a:focus{color:var(--primary)}
+    .btn-menu{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:10px}
+    .btn-menu span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s}
+    .btn-primary{
+      display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--primary);color:#fff;border-radius:10px;font-weight:600;font-size:0.95rem;transition:var(--transition);border:1px solid transparent;box-shadow:0 8px 20px rgba(15,118,110,0.25)
+    }
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 12px 24px rgba(15,118,110,0.35)}
     .btn-outline{
-      display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#fff;color:var(--primary);border:1px solid var(--primary);border-radius:8px;font-weight:600;font-size:0.95rem;transition:.2s
+      display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#fff;color:var(--primary);border:1px solid var(--primary);border-radius:10px;font-weight:600;font-size:0.95rem;transition:var(--transition)
     }
     .btn-outline:hover{background:var(--primary);color:#fff}
 
     /* Hero */
-    .hero{padding:80px 0 60px;position:relative;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:-20% -10% auto 0;background:linear-gradient(135deg,rgba(15,118,110,.10),transparent);border-radius:50% 50% 0 0;z-index:0}
-    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
-    .hero h1{font-size:2.75rem;line-height:1.15;color:var(--text);margin-bottom:16px}
-    .hero h1 .highlight{color:var(--primary)}
-    .hero p{font-size:1.15rem;color:var(--muted);max-width:460px;margin-bottom:28px}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero{
+      position:relative;
+      padding:140px 0 120px;
+      overflow:hidden;
+      background:linear-gradient(135deg, #f0fdfa 0%, #e0f2f1 100%);
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url('https://images.unsplash.com/photo-1460925895917-afbe65ae8364?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      opacity:0.35;
+      z-index:0;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(248,250,252,0.9) 0%, rgba(248,250,252,1) 60%, #ffffff 100%);
+      z-index:1;
+    }
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:60px;align-items:center}
+    .hero h1{
+      font-size:3.2rem;line-height:1.1;color:var(--text);margin-bottom:20px;letter-spacing:-1px
+    }
+    .hero h1 .highlight{color:var(--primary);background:linear-gradient(120deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{font-size:1.25rem;color:var(--muted);max-width:520px;margin-bottom:32px;line-height:1.7}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:16px}
     .hero-visual{display:flex;justify-content:center}
     .hero-card{
-      width:100%;max-width:420px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow);
-      display:flex;flex-direction:column;gap:14px
+      width:100%;max-width:440px;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px;box-shadow:var(--shadow-lg);
+      display:flex;flex-direction:column;gap:20px;position:relative;overflow:hidden
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--accent))
     }
     .badge{
-      display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;font-size:0.78rem;font-weight:600;
-      background:#e0f2f1;color:#134e4a
+      display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:30px;font-size:0.85rem;font-weight:600;
+      background:#e0f2f1;color:#134e4a;border:1px solid #a7f3d0
     }
-    .stat{font-size:1.1rem;font-weight:700;color:var(--primary)}
-    .stat small{font-weight:500;font-size:0.8rem;color:var(--muted);margin-left:4px}
+    .stat-row{display:flex;gap:24px}
+    .stat{flex:1}
+    .stat .num{font-size:1.8rem;font-weight:800;color:var(--primary);font-variant-numeric:tabular-nums}
+    .stat .lbl{font-size:0.85rem;color:var(--muted);margin-top:4px}
 
     /* Projects */
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
     .project-card{
-      background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);
-      display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s
+      background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:0;box-shadow:var(--shadow);
+      display:flex;flex-direction:column;transition:var(--transition);overflow:hidden;position:relative
     }
-    .project-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -12px rgba(2,6,23,0.12);border-color:var(--primary)}
-    .project-card h3{font-size:1.15rem;margin-bottom:8px;color:var(--text)}
-    .project-card p{font-size:0.92rem;color:var(--muted);margin-bottom:16px;flex:1}
-    .tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+    .project-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--primary)}
+    .project-img{height:180px;overflow:hidden;position:relative}
+    .project-img img{width:100%;height:100%;object-fit:cover;transition:var(--transition)}
+    .project-card:hover .project-img img{transform:scale(1.05)}
+    .project-tag{
+      position:absolute;top:16px;left:16px;background:rgba(255,255,255,0.9);color:var(--primary-dark);font-size:0.75rem;font-weight:700;padding:6px 12px;border-radius:20px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.5);box-shadow:0 2px 8px rgba(0,0,0,0.08)
+    }
+    .project-content{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1}
+    .project-card h3{font-size:1.2rem;margin-bottom:4px;color:var(--text)}
+    .project-card p{font-size:0.95rem;color:var(--muted);flex:1;line-height:1.6}
+    .tech{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
     .tech span{
-      font-size:0.72rem;font-weight:600;padding:3px 8px;border-radius:6px;background:#f1f5f9;color:var(--muted);border:1px solid var(--border)
+      font-size:0.7rem;font-weight:600;padding:5px 10px;border-radius:8px;background:#f1f5f9;color:var(--muted);border:1px solid var(--border)
     }
-    .project-card a.link{margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:var(--primary)}
-    .project-card a.link::after{content:"→";font-size:0.75rem}
+    .project-card a.link{margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-size:0.9rem;font-weight:600;color:var(--primary);transition:var(--transition)}
+    .project-card a.link::after{content:"→";font-size:0.7rem}
+    .project-card a.link:hover{color:var(--primary-dark);gap:10px}
 
     /* Features */
-    .features{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .features{background:#ffffff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
     .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
-    .feature{padding:28px 20px;border-radius:var(--radius);background:var(--bg);text-align:center}
-    .feature .icon{width:44px;height:44px;background:#e0f2f1;color:var(--primary);border-radius:10px;display:grid;place-items:center;font-size:1.3rem;margin:0 auto 16px}
-    .feature h4{font-size:1rem;margin-bottom:8px}
-    .feature p{font-size:0.88rem;color:var(--muted)}
+    .feature{padding:32px 24px;border-radius:var(--radius);background:var(--bg);text-align:center;border:1px solid var(--border);transition:var(--transition)}
+    .feature:hover{border-color:var(--primary);transform:translateY(-4px)}
+    .feature .icon{width:52px;height:52px;background:#e0f2f1;color:var(--primary);border-radius:14px;display:grid;place-items:center;font-size:1.6rem;margin:0 auto 20px;box-shadow:0 8px 16px rgba(15,118,110,0.15)}
+    .feature h4{font-size:1.05rem;margin-bottom:10px}
+    .feature p{font-size:0.9rem;color:var(--muted)}
 
     /* CTA */
-    .cta{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border-radius:20px;padding:56px 24px;text-align:center}
-    .cta h2{color:#fff;font-size:1.75rem;margin-bottom:12px}
-    .cta p{color:#cfe8e6;margin-bottom:26px;font-size:1.05rem}
+    .cta{
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;border-radius:28px;padding:80px 32px;text-align:center;position:relative;overflow:hidden
+    }
+    .cta::before{
+      content:"";position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:rgba(255,255,255,0.08);border-radius:50%;z-index:0
+    }
+    .cta .container{position:relative;z-index:1}
+    .cta h2{color:#fff;font-size:2.2rem;margin-bottom:16px}
+    .cta p{color:#cfe8e6;margin-bottom:32px;font-size:1.1rem}
     .cta .btn{background:#fff;color:var(--primary)}
 
+    /* Stats */
+    .stats{
+      background:#f1f5f9;padding:60px 0;border-radius:0;overflow:hidden
+    }
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px}
+    .stat-box{text-align:center;padding:32px 20px;background:#fff;border-radius:20px;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .stat-box .num{font-size:2.6rem;font-weight:800;color:var(--primary);font-variant-numeric:tabular-nums}
+    .stat-box .lbl{font-size:0.95rem;color:var(--muted);margin-top:10px}
+
     /* Footer */
-    footer{border-top:1px solid var(--border);padding:40px 0;color:var(--muted);font-size:0.88rem}
-    .footer-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
-    .footer-brand{font-family:'Poppins';font-weight:700;color:var(--primary);font-size:1.1rem}
-    .footer-links{display:flex;gap:24px;font-size:0.88rem}
+    footer{border-top:1px solid var(--border);padding:60px 0 40px;color:var(--muted)}
+    .footer-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;align-items:center}
+    .footer-brand{font-family:'Poppins';font-weight:800;color:var(--primary);font-size:1.3rem}
+    .footer-links{display:flex;gap:32px;font-size:0.9rem}
     .footer-links a{color:var(--muted);transition:color .2s}
     .footer-links a:hover{color:var(--primary)}
+    .footer-bottom{margin-top:40px;text-align:center;font-size:0.85rem;color:#94a3b8;border-top:1px solid var(--border);padding-top:24px}
 
-    /* Projetos em breve / contato */
+    /* Modal projetos em breve */
     .coming-soon{
       opacity:0.9;
       border-style:dashed;
@@ -129,13 +203,12 @@
       box-shadow:none;
       border-color:var(--primary-dark);
     }
-
     #comingSoonModal{
       display:none;
       position:fixed;
       inset:0;
       background:rgba(15,23,42,0.55);
-      backdrop-filter:blur(6px);
+      backdrop-filter:blur(8px);
       z-index:1000;
       align-items:center;
       justify-content:center;
@@ -144,41 +217,49 @@
     #comingSoonModal.show{display:flex;}
     .modal-card{
       background:#fff;
-      padding:36px 30px;
-      border-radius:20px;
-      max-width:440px;
+      padding:40px 32px;
+      border-radius:24px;
+      max-width:460px;
       width:100%;
       text-align:center;
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow-lg);
       position:relative;
-      animation:modalIn .25s ease;
+      animation:modalIn .3s ease;
+      border:1px solid var(--border);
     }
     @keyframes modalIn{
       from{opacity:0;transform:translateY(-20px);}
       to{opacity:1;transform:translateY(0);}
     }
-    .modal-card h3{margin:0 0 10px;color:var(--primary);font-size:1.6rem;}
-    .modal-card p{margin:0 0 18px;color:var(--text);}
-    .modal-card .highlight{color:var(--primary-dark);font-weight:700;}
-    .modal-actions{display:flex;gap:10px;justify-content:center;}
-    .modal-actions .btn{padding:10px 20px;font-weight:600;}
+    .modal-card h3{margin:0 0 12px;color:var(--primary);font-size:1.8rem;}
+    .modal-card p{margin:0 0 22px;color:var(--text);}
+    .modal-card .highlight{color:var(--primary-dark);font-weight:800;}
+    .modal-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .modal-actions .btn{padding:12px 24px;font-weight:600}
     .btn-close{
-      background:transparent;
-      border:1px solid var(--border);
+      background:#f1f5f9;
+      border:none;
       color:var(--muted);
-      padding:10px 20px;
-      border-radius:8px;
+      padding:12px 24px;
+      border-radius:10px;
       cursor:pointer;
       font-weight:600;
+      transition:var(--transition)
     }
-    .btn-close:hover{background:#f1f5f9;color:var(--text);}
+    .btn-close:hover{background:#e2e8f0;color:var(--text)}
 
     /* Mobile */
     @media (max-width:640px){
-      .hero h1{font-size:2rem}
-      .nav-links{position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);flex-direction:column;padding:20px;gap:14px;display:none;box-shadow:var(--shadow)}
+      .nav-links{position:absolute;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);flex-direction:column;padding:24px;gap:16px;display:none;box-shadow:var(--shadow)}
       .nav-links.open{display:flex}
       .btn-menu{display:flex}
+      .hero h1{font-size:2.4rem}
+      .hero-grid{grid-template-columns:1fr}
+      .hero-card{max-width:100%}
+      .stat-row{flex-direction:column;gap:16px}
+      .section-title{font-size:2rem}
+      .cta h2{font-size:1.8rem}
+      .projects-grid{grid-template-columns:1fr}
     }
     @media (min-width:641px){
       .hero-grid{grid-template-columns:1fr 1fr}
@@ -187,12 +268,16 @@
 </head>
 <body>
 
+  <!-- Orbs decorativos -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
   <nav>
     <div class="container nav-wrap">
       <a href="#" class="brand"><div class="mark">IVC</div>IVC Soft House</a>
       <button class="btn-menu" id="btnMenu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
       <div class="nav-links" id="navLinks">
-        <a href="#sobre">Sobre</a>
+        <a href="#home">Início</a>
         <a href="#projetos">Projetos</a>
         <a href="#tecnologias">Tecnologias</a>
         <a href="#contato">Contato</a>
@@ -205,7 +290,7 @@
       <div>
         <span class="badge">Sistemas Web &amp; Gestão Empresarial</span>
         <h1>Soluções que <span class="highlight">impulsionam</span> o seu negócio</h1>
-        <p>Sistemas de gestão, ERP, e-commerce, restaurante, hotelaria, ordens de serviço e muito mais, desenvolvidos sob medida pela IVC Soft House.</p>
+        <p>Sistemas de gestão, ERP, e-commerce, restaurante, hotelaria, ordens de serviço e muito mais, desenvolvidos sob medida pela IVC Soft House para escalar sua empresa.</p>
         <div class="hero-actions">
           <a href="#projetos" class="btn-primary">Ver todos os projetos</a>
           <a href="#contato" class="btn-outline">Fale conosco</a>
@@ -214,10 +299,16 @@
       <div class="hero-visual">
         <div class="hero-card">
           <div class="badge">+10 sistemas</div>
-          <div class="stat">2026<span small>ano de atuação</small></div>
-          <div style="height:8px"></div>
+          <div class="stat-row">
+            <div class="stat"><div class="num">2026</div><div class="lbl">ano de atuação</div></div>
+            <div class="stat"><div class="num">100%</div><div class="lbl">web e responsivo</div></div>
+          </div>
+          <div style="height:12px"></div>
           <div class="badge">Django · Python · React · Supabase</div>
-          <div class="stat">100%<span small>web e responsivo</small></div>
+          <div class="stat-row">
+            <div class="stat"><div class="num">24/7</div><div class="lbl">suporte dedicado</div></div>
+            <div class="stat"><div class="num">SSL</div><div class="lbl">segurança inclusa</div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -228,81 +319,176 @@
     <p class="section-sub">Conheça os sistemas desenvolvidos pela IVC Soft House. Cada um pode ser acessado pelo seu próprio subdomínio.</p>
     <div class="projects-grid">
       <article class="project-card">
-        <h3>ERP IVC</h3>
-        <p>Sistema integrado de gestão empresarial com financeiro, estoque, cadastros e relatórios.</p>
-        <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
-        <a href="https://erp.ivcsofthouse.com.br" class="link">Acessar sistema</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="ERP IVC">
+          <span class="project-tag">ERP</span>
+        </div>
+        <div class="project-content">
+          <h3>ERP IVC</h3>
+          <p>Sistema integrado de gestão empresarial com financeiro, estoque, cadastros e relatórios gerenciais.</p>
+          <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
+          <a href="https://erp.ivcsofthouse.com.br" class="link">Acessar sistema</a>
+        </div>
       </article>
       <article class="project-card">
-        <h3>Plataforma de Vendas SaaS</h3>
-        <p>E-commerce completo com carrinho, pagamentos via Stripe, painel do cliente e gestão de pedidos.</p>
-        <div class="tech"><span>React</span><span>Vite</span><span>Supabase</span><span>Tailwind</span></div>
-        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=600&q=80" alt="Plataforma de Vendas">
+          <span class="project-tag">SaaS</span>
+        </div>
+        <div class="project-content">
+          <h3>Plataforma de Vendas SaaS</h3>
+          <p>E-commerce completo com carrinho, pagamentos via Stripe, painel do cliente e gestão de pedidos.</p>
+          <div class="tech"><span>React</span><span>Vite</span><span>Supabase</span><span>Tailwind</span></div>
+          <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        </div>
       </article>
       <article class="project-card">
-        <h3>Restaurante / PDV</h3>
-        <p>Sistema para restaurantes com cardápio digital, ponto de venda, mesas e comandas. Em breve no ar.</p>
-        <div class="tech"><span>Python</span><span>Django</span><span>MySQL</span></div>
-        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Restaurante PDV">
+          <span class="project-tag">PDV</span>
+        </div>
+        <div class="project-content">
+          <h3>Restaurante / PDV</h3>
+          <p>Sistema para restaurantes com cardápio digital, ponto de venda, mesas e comandas.</p>
+          <div class="tech"><span>Python</span><span>Django</span><span>MySQL</span></div>
+          <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        </div>
       </article>
       <article class="project-card">
-        <h3>Hotelaria</h3>
-        <p>Gerenciamento de reservas, hóspedes, diárias, tarifas e relatórios de ocupação.</p>
-        <div class="tech"><span>Python</span><span>Django</span><span>MySQL</span></div>
-        <a href="https://hotelaria.ivcsofthouse.com.br" class="link">Acessar sistema</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Hotelaria">
+          <span class="project-tag">Hotelaria</span>
+        </div>
+        <div class="project-content">
+          <h3>Hotelaria</h3>
+          <p>Gerenciamento de reservas, hóspedes, diárias, tarifas e relatórios de ocupação.</p>
+          <div class="tech"><span>Python</span><span>Django</span><span>MySQL</span></div>
+          <a href="https://ehotelaria.ivcsofthouse.com.br" class="link">Acessar sistema</a>
+        </div>
       </article>
       <article class="project-card">
-        <h3>Clube Manager (Clube Campestre)</h3>
-        <p>Gestão de sócios, dependentes, eventos, cobranças recorrentes e salão de festas.</p>
-        <div class="tech"><span>Next.js</span><span>TypeScript</span><span>Tailwind</span><span>Prisma</span></div>
-        <a href="https://eclubecampestre.ivcsofthouse.com.br" class="link">Acessar sistema</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1533938337037-439666367865?auto=format&fit=crop&w=600&q=80" alt="Clube Manager">
+          <span class="project-tag">Clube</span>
+        </div>
+        <div class="project-content">
+          <h3>Clube Manager (Clube Campestre)</h3>
+          <p>Gestão de sócios, dependentes, eventos, cobranças recorrentes e salão de festas.</p>
+          <div class="tech"><span>Next.js</span><span>TypeScript</span><span>Tailwind</span><span>Prisma</span></div>
+          <a href="https://eclubecampestre.ivcsofthouse.com.br" class="link">Acessar sistema</a>
+        </div>
       </article>
       <article class="project-card">
-        <h3>Oficinas / Ordem de Serviço</h3>
-        <p>Controle de ordens de serviço, estoque de peças, veículos e mecânicos.</p>
-        <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
-        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1583392870730-f069c18f2e48?auto=format&fit=crop&w=600&q=80" alt="Ordem de Serviço">
+          <span class="project-tag">OS</span>
+        </div>
+        <div class="project-content">
+          <h3>Oficinas / Ordem de Serviço</h3>
+          <p>Controle de ordens de serviço, estoque de peças, veículos e mecânicos.</p>
+          <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
+          <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        </div>
       </article>
       <article class="project-card">
-        <h3>Locadora de Veículos</h3>
-        <p>Locação de carros com cadastro de clientes, veículos, contratos e financeiro.</p>
-        <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
-        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1560539883-631c885700a0?auto=format&fit=crop&w=600&q=80" alt="Locadora de Veículos">
+          <span class="project-tag">Locadora</span>
+        </div>
+        <div class="project-content">
+          <h3>Locadora de Veículos</h3>
+          <p>Locação de carros com cadastro de clientes, veículos, contratos e financeiro.</p>
+          <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
+          <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        </div>
       </article>
       <article class="project-card">
-        <h3>Metalurgia / Serviços</h3>
-        <p>Gestão de serviços industriais, empresas cliente, faturamento e relatórios.</p>
-        <div class="tech"><span>Python</span><span>Django</span><span>MySQL</span></div>
-        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Metalurgia">
+          <span class="project-tag">Indústria</span>
+        </div>
+        <div class="project-content">
+          <h3>Metalurgia / Serviços</h3>
+          <p>Gestão de serviços industriais, empresas cliente, faturamento e relatórios.</p>
+          <div class="tech"><span>Python</span><span>Django</span><span>MySQL</span></div>
+          <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        </div>
       </article>
       <article class="project-card">
-        <h3>Sistema Financeiro</h3>
-        <p>Controle financeiro, cadastro de empresas e relatórios gerenciais.</p>
-        <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
-        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" alt="Sistema Financeiro">
+          <span class="project-tag">Financeiro</span>
+        </div>
+        <div class="project-content">
+          <h3>Sistema Financeiro</h3>
+          <p>Controle financeiro, cadastro de empresas e relatórios gerenciais.</p>
+          <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
+          <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        </div>
       </article>
       <article class="project-card">
-        <h3>Sistema de Cobrança</h3>
-        <p>Gestão de cobranças, inadimplência e relatórios financeiros com integração Supabase.</p>
-        <div class="tech"><span>Python</span><span>Django</span><span>Supabase</span></div>
-        <a href="https://ecobrancas.ivcsofthouse.com.br" class="link">Acessar sistema</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1544383835-bda2de6cbfe2?auto=format&fit=crop&w=600&q=80" alt="Sistema de Cobrança">
+          <span class="project-tag">Cobrança</span>
+        </div>
+        <div class="project-content">
+          <h3>Sistema de Cobrança</h3>
+          <p>Gestão de cobranças, inadimplência e relatórios financeiros com integração Supabase.</p>
+          <div class="tech"><span>Python</span><span>Django</span><span>Supabase</span></div>
+          <a href="https://ecobrancas.ivcsofthouse.com.br" class="link">Acessar sistema</a>
+        </div>
       </article>
       <article class="project-card">
-        <h3>Gerente de Serviços</h3>
-        <p>Gestão de prestadores de serviços, agendamentos e controle de atendimentos.</p>
-        <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
-        <a href="https://gservicos.ivcsofthouse.com.br" class="link">Acessar sistema</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Gerente de Serviços">
+          <span class="project-tag">Serviços</span>
+        </div>
+        <div class="project-content">
+          <h3>Gerente de Serviços</h3>
+          <p>Gestão de prestadores de serviços, agendamentos e controle de atendimentos.</p>
+          <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
+          <a href="https://gservicos.ivcsofthouse.com.br" class="link">Acessar sistema</a>
+        </div>
       </article>
       <article class="project-card">
-        <h3>MicroBlog</h3>
-        <p>Plataforma simples de publicação de posts e interação entre usuários.</p>
-        <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
-        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        <div class="project-img">
+          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="MicroBlog">
+          <span class="project-tag">Blog</span>
+        </div>
+        <div class="project-content">
+          <h3>MicroBlog</h3>
+          <p>Plataforma simples de publicação de posts e interação entre usuários.</p>
+          <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
+          <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
+        </div>
       </article>
     </div>
-    <p style="text-align:center;margin-top:18px;color:var(--muted);font-size:0.85rem">
+    <p style="text-align:center;margin-top:30px;color:var(--muted);font-size:0.9rem">
       Alguns projetos ainda estão sendo colocados no ar — entre em contato para saber a disponibilidade de cada um.
     </p>
+  </section>
+
+  <section class="section stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="num">10+</div>
+          <div class="lbl">Sistemas entregues</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">5</div>
+          <div class="lbl">Anos de experiência</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">100%</div>
+          <div class="lbl">Web e responsivo</div>
+        </div>
+        <div class="stat-box">
+          <div class="num">24/7</div>
+          <div class="lbl">Suporte dedicado</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="section features" id="tecnologias">
@@ -318,11 +504,11 @@
     </div>
   </section>
 
-  <section class="section cta" id="contato">
+  <section class="cta" id="contato">
     <div class="container">
       <h2>Quer um sistema para o seu negócio?</h2>
       <p>Conte com a IVC Soft House para desenvolver sua solução sob medida e hospedar na sua própria VPS com Coolify.</p>
-      <a href="mailto:ivcsofthouse@gmail.com" class="btn btn-primary">Enviar e-mail</a>
+      <a href="mailto:ivcsofthouse@gmail.com?subject=IVC%20Soft%20House%20-%20Novo%20Projeto&body=Ol%C3%A1!%20Tenho%20interesse%20em%20um%20sistema%20para%20minha%20empresa.%20Gostaria%20de%20uma%20proposta." class="btn btn-primary">Enviar e-mail</a>
     </div>
   </section>
 
@@ -336,22 +522,13 @@
         <a href="mailto:ivcsofthouse@gmail.com">ivcsofthouse@gmail.com</a>
       </div>
     </div>
-    <p style="margin-top:16px;text-align:center;font-size:0.8rem;color:#94a3b8">© 2026 IVC Soft House. Hospedado em VPS Hostinger com Coolify · ivcsofthouse.com.br</p>
+    <div class="footer-bottom">
+      <p>© 2026 IVC Soft House. Hospedado em VPS Hostinger com Coolify · ivcsofthouse.com.br</p>
+    </div>
   </footer>
 
-  <script>
-    const btn = document.getElementById('btnMenu')
-    const links = document.getElementById('navLinks')
-    btn.addEventListener('click', () => {
-      const open = links.classList.toggle('open')
-      btn.setAttribute('aria-expanded', open)
-    })
-    // Fecha menu ao clicar em um link
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')))
-  </script>
-
   <!-- Modal projetos em breve -->
-  <div id="comingSoonModal" class="modal">
+  <div id="comingSoonModal">
     <div class="modal-card">
       <h3>Este projeto está chegando! 🚀</h3>
       <p>Estamos finalizando com carinho para você.</p>
@@ -365,16 +542,24 @@
   </div>
 
   <script>
+    const btn = document.getElementById('btnMenu')
+    const links = document.getElementById('navLinks')
+    btn.addEventListener('click', () => {
+      const open = links.classList.toggle('open')
+      btn.setAttribute('aria-expanded', open)
+    })
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')))
+
     function showComingSoon(e){
-      e.preventDefault();
-      document.getElementById('comingSoonModal').classList.add('show');
+      e.preventDefault()
+      document.getElementById('comingSoonModal').classList.add('show')
     }
     function closeComingSoon(){
-      document.getElementById('comingSoonModal').classList.remove('show');
+      document.getElementById('comingSoonModal').classList.remove('show')
     }
     document.getElementById('comingSoonModal').addEventListener('click', function(e){
-      if(e.target.id === 'comingSoonModal') closeComingSoon();
-    });
+      if(e.target.id === 'comingSoonModal') closeComingSoon()
+    })
   </script>
 </body>
 </html>
