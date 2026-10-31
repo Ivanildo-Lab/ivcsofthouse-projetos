@@ -81,30 +81,39 @@
     /* Hero */
     .hero{
       position:relative;
-      padding:130px 0 110px;
+      padding:0;
       overflow:hidden;
-      background:linear-gradient(135deg, #f0fdfa 0%, #e0f2f1 100%);
     }
-    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:60px;align-items:center}
+    .hero-bg{
+      position:relative;
+      height:70vh;
+      min-height:600px;
+      background:linear-gradient(135deg, rgba(15,118,110,0.85) 0%, rgba(6,182,212,0.85) 100%), url('assets/images/hero.jpg') center/cover no-repeat;
+    }
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:120px 24px 100px;
+      text-align:center;
+      color:#fff;
+    }
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:30px;font-size:0.85rem;font-weight:600;
+      background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(8px);
+      margin-bottom:20px;
+    }
     .hero h1{
-      font-size:3.2rem;line-height:1.1;color:var(--text);margin-bottom:20px;letter-spacing:-1px
+      font-size:3.5rem;line-height:1.1;color:#fff;margin-bottom:24px;letter-spacing:-1px;
     }
-    .hero h1 .highlight{color:var(--primary);background:linear-gradient(120deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero p{font-size:1.25rem;color:var(--muted);max-width:520px;margin-bottom:32px;line-height:1.7}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:16px}
-    .hero-visual{display:flex;justify-content:center}
-    .hero-img{
-      width:100%;max-width:520px;border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);
-    }
-    .hero-img img{width:100%;height:100%;object-fit:cover;display:block}
-    .hero-card{
-      width:100%;max-width:440px;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px;box-shadow:var(--shadow-lg);
-      display:flex;flex-direction:column;gap:20px;position:relative;overflow:hidden
-    }
-    .hero-card::before{
-      content:"";
-      position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--accent))
-    }
+    .hero h1 .highlight{color:#fff;background:linear-gradient(120deg,#fff,#a5f3fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{font-size:1.35rem;color:rgba(255,255,255,0.95);max-width:700px;margin:0 auto 32px;line-height:1.7}
+    .hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+    .hero-actions .btn-primary{background:#fff;color:var(--primary);}
+    .hero-actions .btn-primary:hover{background:#f1f5f9;transform:translateY(-2px);}
+    .hero-actions .btn-outline{border-color:rgba(255,255,255,0.8);color:#fff;}
+    .hero-actions .btn-outline:hover{background:rgba(255,255,255,0.15);border-color:#fff;}
     .badge{
       display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:30px;font-size:0.85rem;font-weight:600;
       background:#e0f2f1;color:#134e4a;border:1px solid #a7f3d0
@@ -276,32 +285,20 @@
   </nav>
 
   <section class="hero" id="home">
-    <div class="container hero-grid">
-      <div>
-        <span class="badge">Sistemas Web &amp; Gestão Empresarial</span>
+    <div class="hero-bg">
+      <div class="hero-content">
+        <span class="hero-badge">Sistemas Web &amp; Gestão Empresarial</span>
         <h1>Soluções que <span class="highlight">impulsionam</span> o seu negócio</h1>
         <p>Desenvolvemos sistemas de gestão, ERP, e-commerce, restaurante, hotelaria, ordens de serviço e muito mais, sob medida para escalar sua empresa com tecnologia de ponta.</p>
         <div class="hero-actions">
           <a href="#projetos" class="btn-primary">Ver todos os projetos</a>
           <a href="#contato" class="btn-outline">Fale conosco</a>
         </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-img">
-          <img src="assets/images/hero.jpg" alt="Desenvolvimento de sistemas e tecnologia">
-        </div>
-        <div class="hero-card">
-          <div class="badge">+10 sistemas</div>
-          <div class="stat-row">
-            <div class="stat"><div class="num">2026</div><div class="lbl">ano de atuação</div></div>
-            <div class="stat"><div class="num">100%</div><div class="lbl">web e responsivo</div></div>
-          </div>
-          <div style="height:12px"></div>
-          <div class="badge">Django · Python · React · Supabase</div>
-          <div class="stat-row">
-            <div class="stat"><div class="num">24/7</div><div class="lbl">suporte dedicado</div></div>
-            <div class="stat"><div class="num">SSL</div><div class="lbl">segurança inclusa</div></div>
-          </div>
+        <div class="stat-row" style="margin-top:56px;justify-content:center;">
+          <div class="stat"><div class="num">10+</div><div class="lbl">Sistemas entregues</div></div>
+          <div class="stat"><div class="num">2026</div><div class="lbl">Ano de atuação</div></div>
+          <div class="stat"><div class="num">100%</div><div class="lbl">Web e responsivo</div></div>
+          <div class="stat"><div class="num">24/7</div><div class="lbl">Suporte dedicado</div></div>
         </div>
       </div>
     </div>
