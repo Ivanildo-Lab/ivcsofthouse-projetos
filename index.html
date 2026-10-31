@@ -48,16 +48,16 @@
       border-radius:50%;
       filter:blur(80px);
       z-index:-1;
-      opacity:0.6;
+      opacity:0.5;
       pointer-events:none;
     }
     .orb-1{top:-10%;left:-10%;width:600px;height:600px;background:var(--accent);}
-    .orb-2{bottom:-10%;right:-10%;width:700px;height:700px:background:var(--primary);}
+    .orb-2{bottom:-10%;right:-10%;width:700px;height:700px;background:var(--primary);}
 
     /* Navbar */
     nav{
       position:sticky;top:0;z-index:100;
-      background:rgba(248,250,252,0.7);
+      background:rgba(248,250,252,0.8);
       backdrop-filter:blur(16px);
       border-bottom:1px solid var(--border);
     }
@@ -81,24 +81,9 @@
     /* Hero */
     .hero{
       position:relative;
-      padding:140px 0 120px;
+      padding:130px 0 110px;
       overflow:hidden;
       background:linear-gradient(135deg, #f0fdfa 0%, #e0f2f1 100%);
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:url('https://images.unsplash.com/photo-1460925895917-afbe65ae8364?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      opacity:0.35;
-      z-index:0;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(248,250,252,0.9) 0%, rgba(248,250,252,1) 60%, #ffffff 100%);
-      z-index:1;
     }
     .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:60px;align-items:center}
     .hero h1{
@@ -108,6 +93,9 @@
     .hero p{font-size:1.25rem;color:var(--muted);max-width:520px;margin-bottom:32px;line-height:1.7}
     .hero-actions{display:flex;flex-wrap:wrap;gap:16px}
     .hero-visual{display:flex;justify-content:center}
+    .hero-img{
+      width:100%;max-width:520px;border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);
+    }
     .hero-card{
       width:100%;max-width:440px;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:32px;box-shadow:var(--shadow-lg);
       display:flex;flex-direction:column;gap:20px;position:relative;overflow:hidden
@@ -132,11 +120,12 @@
       display:flex;flex-direction:column;transition:var(--transition);overflow:hidden;position:relative
     }
     .project-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--primary)}
-    .project-img{height:180px;overflow:hidden;position:relative}
+    .project-img{height:180px;overflow:hidden;position:relative;background:#f1f5f9;display:flex;align-items:center;justify-content:center}
     .project-img img{width:100%;height:100%;object-fit:cover;transition:var(--transition)}
     .project-card:hover .project-img img{transform:scale(1.05)}
+    .project-svg{width:90px;height:90px;filter:drop-shadow(0 8px 16px rgba(0,0,0,0.1))}
     .project-tag{
-      position:absolute;top:16px;left:16px;background:rgba(255,255,255,0.9);color:var(--primary-dark);font-size:0.75rem;font-weight:700;padding:6px 12px;border-radius:20px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.5);box-shadow:0 2px 8px rgba(0,0,0,0.08)
+      position:absolute;top:16px;left:16px;background:rgba(255,255,255,0.95);color:var(--primary-dark);font-size:0.75rem;font-weight:800;padding:6px 12px;border-radius:20px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.6);box-shadow:0 2px 8px rgba(0,0,0,0.08)
     }
     .project-content{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1}
     .project-card h3{font-size:1.2rem;margin-bottom:4px;color:var(--text)}
@@ -173,7 +162,7 @@
 
     /* Stats */
     .stats{
-      background:#f1f5f9;padding:60px 0;border-radius:0;overflow:hidden
+      background:#f1f5f9;padding:60px 0
     }
     .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px}
     .stat-box{text-align:center;padding:32px 20px;background:#fff;border-radius:20px;border:1px solid var(--border);box-shadow:var(--shadow)}
@@ -256,6 +245,7 @@
       .hero h1{font-size:2.4rem}
       .hero-grid{grid-template-columns:1fr}
       .hero-card{max-width:100%}
+      .hero-img{max-width:100%}
       .stat-row{flex-direction:column;gap:16px}
       .section-title{font-size:2rem}
       .cta h2{font-size:1.8rem}
@@ -290,13 +280,80 @@
       <div>
         <span class="badge">Sistemas Web &amp; Gestão Empresarial</span>
         <h1>Soluções que <span class="highlight">impulsionam</span> o seu negócio</h1>
-        <p>Sistemas de gestão, ERP, e-commerce, restaurante, hotelaria, ordens de serviço e muito mais, desenvolvidos sob medida pela IVC Soft House para escalar sua empresa.</p>
+        <p>Desenvolvemos sistemas de gestão, ERP, e-commerce, restaurante, hotelaria, ordens de serviço e muito mais, sob medida para escalar sua empresa com tecnologia de ponta.</p>
         <div class="hero-actions">
           <a href="#projetos" class="btn-primary">Ver todos os projetos</a>
           <a href="#contato" class="btn-outline">Fale conosco</a>
         </div>
       </div>
       <div class="hero-visual">
+        <div class="hero-img">
+          <!-- Imagem principal de tecnologia/desenvolvimento de sistemas -->
+          <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="heroTitle">
+            <title id="heroTitle">Tecnologia e Desenvolvimento de Sistemas</title>
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#0f766e;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+              </linearGradient>
+              <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#115e59;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <!-- Fundo abstrato -->
+            <rect width="800" height="600" fill="#f0fdfa" />
+            <circle cx="650" cy="150" r="200" fill="url(#grad1)" opacity="0.15" />
+            <circle cx="150" cy="450" r="180" fill="url(#grad2)" opacity="0.12" />
+            <circle cx="400" cy="300" r="120" fill="#ffffff" opacity="0.6" />
+            <!-- Laptop -->
+            <g transform="translate(100, 180)">
+              <rect x="20" y="40" width="260" height="160" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+              <rect x="40" y="60" width="220" height="120" rx="6" fill="#0f172a" />
+              <!-- Tela do laptop com código -->
+              <text x="60" y="90" font-family="monospace" font-size="12" fill="#06b6d4">// IVC Soft House</text>
+              <text x="60" y="110" font-family="monospace" font-size="12" fill="#22c55e">const sistema = new Gestao();</text>
+              <text x="60" y="130" font-family="monospace" font-size="12" fill="#a855f7">sistema.iniciar()</text>
+              <text x="60" y="150" font-family="monospace" font-size="12" fill="#ef4444">--> deploy OK</text>
+              <rect x="20" y="210" width="260" height="10" rx="5" fill="#cbd5e1" />
+            </g>
+            <!-- Celular -->
+            <g transform="translate(450, 320)">
+              <rect x="0" y="0" width="140" height="260" rx="24" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+              <rect x="10" y="10" width="120" height="240" rx="20" fill="#0f172a" />
+              <circle cx="70" cy="40" r="8" fill="#10b981" />
+              <circle cx="70" cy="60" r="8" fill="#f59e0b" />
+              <circle cx="70" cy="80" r="8" fill="#ef4444" />
+              <rect x="40" y="110" width="60" height="6" rx="3" fill="#334155" opacity="0.6" />
+              <rect x="40" y="125" width="40" height="6" rx="3" fill="#334155" opacity="0.4" />
+            </g>
+            <!-- Gráficos/barras -->
+            <g transform="translate(560, 250)">
+              <rect x="0" y="180" width="40" height="60" rx="4" fill="#0f766e" />
+              <rect x="50" y="140" width="40" height="100" rx="4" fill="#06b6d4" />
+              <rect x="100" y="100" width="40" height="140" rx="4" fill="#0f766e" />
+              <rect x="150" y="160" width="40" height="80" rx="4" fill="#06b6d4" />
+              <rect x="200" y="120" width="40" height="120" rx="4" fill="#0f766e" />
+              <text x="100" y="300" font-family="Inter" font-size="14" fill="#64748b" text-anchor="middle">Crescimento</text>
+            </g>
+            <!-- Nuvem/servidor -->
+            <g transform="translate(380, 420)">
+              <rect x="0" y="0" width="70" height="30" rx="6" fill="#e2e8f0" />
+              <rect x="10" y="5" width="10" height="20" rx="3" fill="#0f766e" />
+              <rect x="30" y="5" width="10" height="20" rx="3" fill="#06b6d4" />
+              <rect x="50" y="5" width="10" height="20" rx="3" fill="#0f766e" />
+              <rect x="20" y="35" width="30" height="10" rx="3" fill="#cbd5e1" />
+            </g>
+            <!-- Linhas de conexão -->
+            <path d="M 300 220 Q 400 100 520 280" stroke="#0f766e" stroke-width="2" fill="none" stroke-dasharray="6,6" opacity="0.4" />
+            <path d="M 200 340 Q 350 200 500 360" stroke="#06b6d4" stroke-width="2" fill="none" stroke-dasharray="6,6" opacity="0.4" />
+            <!-- Nós -->
+            <circle cx="300" cy="220" r="6" fill="#0f766e" opacity="0.6" />
+            <circle cx="520" cy="280" r="6" fill="#0f766e" opacity="0.6" />
+            <circle cx="200" cy="340" r="6" fill="#06b6d4" opacity="0.6" />
+            <circle cx="500" cy="360" r="6" fill="#06b6d4" opacity="0.6" />
+          </svg>
+        </div>
         <div class="hero-card">
           <div class="badge">+10 sistemas</div>
           <div class="stat-row">
@@ -320,7 +377,15 @@
     <div class="projects-grid">
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="ERP IVC">
+          <!-- Ícone ERP -->
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#0f766e" opacity="0.1" stroke="#0f766e" stroke-width="2" />
+            <rect x="20" y="30" width="20" height="12" rx="2" fill="#0f766e" />
+            <rect x="20" y="45" width="30" height="8" rx="2" fill="#0f766e" />
+            <rect x="20" y="58" width="40" height="8" rx="2" fill="#0f766e" />
+            <rect x="60" y="30" width="20" height="12" rx="2" fill="#06b6d4" />
+            <rect x="60" y="45" width="20" height="8" rx="2" fill="#06b6d4" />
+          </svg>
           <span class="project-tag">ERP</span>
         </div>
         <div class="project-content">
@@ -332,7 +397,12 @@
       </article>
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=600&q=80" alt="Plataforma de Vendas">
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#06b6d4" opacity="0.1" stroke="#06b6d4" stroke-width="2" />
+            <circle cx="30" cy="50" r="10" fill="#06b6d4" />
+            <circle cx="50" cy="40" r="10" fill="#06b6d4" opacity="0.7" />
+            <circle cx="70" cy="50" r="10" fill="#06b6d4" />
+          </svg>
           <span class="project-tag">SaaS</span>
         </div>
         <div class="project-content">
@@ -344,7 +414,12 @@
       </article>
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Restaurante PDV">
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="2" />
+            <rect x="20" y="35" width="15" height="25" rx="3" fill="#ef4444" opacity="0.8" />
+            <rect x="40" y="30" width="20" height="30" rx="3" fill="#ef4444" opacity="0.6" />
+            <rect x="65" y="40" width="15" height="20" rx="3" fill="#ef4444" opacity="0.8" />
+          </svg>
           <span class="project-tag">PDV</span>
         </div>
         <div class="project-content">
@@ -356,7 +431,14 @@
       </article>
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Hotelaria">
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#0f766e" opacity="0.1" stroke="#0f766e" stroke-width="2" />
+            <rect x="30" y="30" width="12" height="12" rx="3" fill="#0f766e" />
+            <rect x="58" y="30" width="12" height="12" rx="3" fill="#0f766e" opacity="0.8" />
+            <rect x="30" y="58" width="12" height="12" rx="3" fill="#0f766e" opacity="0.8" />
+            <rect x="58" y="58" width="12" height="12" rx="3" fill="#0f766e" />
+            <rect x="42" y="44" width="16" height="12" rx="4" fill="#0f766e" opacity="0.6" />
+          </svg>
           <span class="project-tag">Hotelaria</span>
         </div>
         <div class="project-content">
@@ -368,7 +450,11 @@
       </article>
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1533938337037-439666367865?auto=format&fit=crop&w=600&q=80" alt="Clube Manager">
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#a855f7" opacity="0.1" stroke="#a855f7" stroke-width="2" />
+            <path d="M 50 25 L 80 45 L 50 65 L 20 45 Z" fill="#a855f7" opacity="0.8" />
+            <circle cx="50" cy="45" r="6" fill="#ffffff" />
+          </svg>
           <span class="project-tag">Clube</span>
         </div>
         <div class="project-content">
@@ -380,7 +466,13 @@
       </article>
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1583392870730-f069c18f2e48?auto=format&fit=crop&w=600&q=80" alt="Ordem de Serviço">
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="2" />
+            <rect x="20" y="30" width="30" height="8" rx="2" fill="#ef4444" />
+            <rect x="20" y="42" width="40" height="8" rx="2" fill="#ef4444" opacity="0.8" />
+            <rect x="55" y="54" width="25" height="8" rx="2" fill="#ef4444" />
+            <circle cx="70" cy="72" r="5" fill="#ef4444" opacity="0.8" />
+          </svg>
           <span class="project-tag">OS</span>
         </div>
         <div class="project-content">
@@ -392,7 +484,13 @@
       </article>
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1560539883-631c885700a0?auto=format&fit=crop&w=600&q=80" alt="Locadora de Veículos">
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#0f766e" opacity="0.1" stroke="#0f766e" stroke-width="2" />
+            <rect x="20" y="30" width="25" height="8" rx="2" fill="#0f766e" />
+            <rect x="20" y="42" width="15" height="8" rx="2" fill="#0f766e" opacity="0.8" />
+            <rect x="45" y="42" width="35" height="8" rx="2" fill="#0f766e" opacity="0.8" />
+            <rect x="20" y="54" width="60" height="8" rx="2" fill="#0f766e" />
+          </svg>
           <span class="project-tag">Locadora</span>
         </div>
         <div class="project-content">
@@ -404,7 +502,12 @@
       </article>
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Metalurgia">
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="2" />
+            <rect x="20" y="30" width="15" height="40" rx="3" fill="#ef4444" opacity="0.8" />
+            <rect x="40" y="30" width="15" height="40" rx="3" fill="#ef4444" opacity="0.6" />
+            <rect x="65" y="30" width="15" height="40" rx="3" fill="#ef4444" opacity="0.8" />
+          </svg>
           <span class="project-tag">Indústria</span>
         </div>
         <div class="project-content">
@@ -416,7 +519,12 @@
       </article>
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" alt="Sistema Financeiro">
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#0f766e" opacity="0.1" stroke="#0f766e" stroke-width="2" />
+            <rect x="20" y="30" width="60" height="8" rx="2" fill="#0f766e" />
+            <rect x="20" y="42" width="40" height="8" rx="2" fill="#0f766e" opacity="0.8" />
+            <rect x="20" y="54" width="55" height="8" rx="2" fill="#0f766e" opacity="0.6" />
+          </svg>
           <span class="project-tag">Financeiro</span>
         </div>
         <div class="project-content">
@@ -428,7 +536,13 @@
       </article>
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1544383835-bda2de6cbfe2?auto=format&fit=crop&w=600&q=80" alt="Sistema de Cobrança">
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#06b6d4" opacity="0.1" stroke="#06b6d4" stroke-width="2" />
+            <rect x="20" y="30" width="15" height="15" rx="3" fill="#06b6d4" />
+            <rect x="40" y="30" width="15" height="15" rx="3" fill="#06b6d4" opacity="0.8" />
+            <rect x="65" y="30" width="15" height="15" rx="3" fill="#06b6d4" />
+            <rect x="20" y="50" width="60" height="8" rx="2" fill="#06b6d4" opacity="0.6" />
+          </svg>
           <span class="project-tag">Cobrança</span>
         </div>
         <div class="project-content">
@@ -440,7 +554,11 @@
       </article>
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Gerente de Serviços">
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#0f766e" opacity="0.1" stroke="#0f766e" stroke-width="2" />
+            <rect x="20" y="30" width="25" height="40" rx="4" fill="#0f766e" opacity="0.8" />
+            <rect x="55" y="35" width="25" height="30" rx="4" fill="#0f766e" opacity="0.6" />
+          </svg>
           <span class="project-tag">Serviços</span>
         </div>
         <div class="project-content">
@@ -452,7 +570,12 @@
       </article>
       <article class="project-card">
         <div class="project-img">
-          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="MicroBlog">
+          <svg class="project-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="20" width="80" height="60" rx="8" fill="#06b6d4" opacity="0.1" stroke="#06b6d4" stroke-width="2" />
+            <path d="M 25 30 L 50 20 L 75 30 L 50 40 Z" fill="#06b6d4" opacity="0.8" />
+            <rect x="25" y="40" width="50" height="8" rx="2" fill="#06b6d4" opacity="0.6" />
+            <rect x="25" y="52" width="50" height="8" rx="2" fill="#06b6d4" opacity="0.4" />
+          </svg>
           <span class="project-tag">Blog</span>
         </div>
         <div class="project-content">
