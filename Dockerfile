@@ -1,6 +1,6 @@
 # -----------------------------------------------------------
 # Dockerfile para Coolify — Landing Page IVC Soft House
-# Alternativa ao docker-compose.yml (build de imagem própria)
+# Build de imagem própria (evita bind mount de arquivos soltos)
 # -----------------------------------------------------------
 FROM nginx:alpine
 
