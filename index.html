@@ -115,6 +115,64 @@
     .footer-links a{color:var(--muted);transition:color .2s}
     .footer-links a:hover{color:var(--primary)}
 
+    /* Projetos em breve / contato */
+    .coming-soon{
+      opacity:0.9;
+      border-style:dashed;
+      background:#fff7f7;
+      color:var(--primary-dark);
+      cursor:pointer;
+    }
+    .coming-soon:hover{
+      background:#ffe9e9;
+      transform:none;
+      box-shadow:none;
+      border-color:var(--primary-dark);
+    }
+
+    #comingSoonModal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(15,23,42,0.55);
+      backdrop-filter:blur(6px);
+      z-index:1000;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    #comingSoonModal.show{display:flex;}
+    .modal-card{
+      background:#fff;
+      padding:36px 30px;
+      border-radius:20px;
+      max-width:440px;
+      width:100%;
+      text-align:center;
+      box-shadow:var(--shadow);
+      position:relative;
+      animation:modalIn .25s ease;
+    }
+    @keyframes modalIn{
+      from{opacity:0;transform:translateY(-20px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+    .modal-card h3{margin:0 0 10px;color:var(--primary);font-size:1.6rem;}
+    .modal-card p{margin:0 0 18px;color:var(--text);}
+    .modal-card .highlight{color:var(--primary-dark);font-weight:700;}
+    .modal-actions{display:flex;gap:10px;justify-content:center;}
+    .modal-actions .btn{padding:10px 20px;font-weight:600;}
+    .btn-close{
+      background:transparent;
+      border:1px solid var(--border);
+      color:var(--muted);
+      padding:10px 20px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .btn-close:hover{background:#f1f5f9;color:var(--text);}
+
     /* Mobile */
     @media (max-width:640px){
       .hero h1{font-size:2rem}
@@ -179,7 +237,7 @@
         <h3>Plataforma de Vendas SaaS</h3>
         <p>E-commerce completo com carrinho, pagamentos via Stripe, painel do cliente e gestão de pedidos.</p>
         <div class="tech"><span>React</span><span>Vite</span><span>Supabase</span><span>Tailwind</span></div>
-        <a href="#" class="link">Acessar loja</a>
+        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
       </article>
       <article class="project-card">
         <h3>Restaurante / PDV</h3>
@@ -203,25 +261,25 @@
         <h3>Oficinas / Ordem de Serviço</h3>
         <p>Controle de ordens de serviço, estoque de peças, veículos e mecânicos.</p>
         <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
-        <a href="#" class="link">Acessar sistema</a>
+        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
       </article>
       <article class="project-card">
         <h3>Locadora de Veículos</h3>
         <p>Locação de carros com cadastro de clientes, veículos, contratos e financeiro.</p>
         <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
-        <a href="#" class="link">Acessar sistema</a>
+        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
       </article>
       <article class="project-card">
         <h3>Metalurgia / Serviços</h3>
         <p>Gestão de serviços industriais, empresas cliente, faturamento e relatórios.</p>
         <div class="tech"><span>Python</span><span>Django</span><span>MySQL</span></div>
-        <a href="#" class="link">Acessar sistema</a>
+        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
       </article>
       <article class="project-card">
         <h3>Sistema Financeiro</h3>
         <p>Controle financeiro, cadastro de empresas e relatórios gerenciais.</p>
         <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
-        <a href="#" class="link">Acessar sistema</a>
+        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
       </article>
       <article class="project-card">
         <h3>Sistema de Cobrança</h3>
@@ -239,7 +297,7 @@
         <h3>MicroBlog</h3>
         <p>Plataforma simples de publicação de posts e interação entre usuários.</p>
         <div class="tech"><span>Python</span><span>Django</span><span>SQL</span></div>
-        <a href="#" class="link">Acessar blog</a>
+        <a href="#" class="link coming-soon" onclick="showComingSoon(event)">Em breve — entre em contato</a>
       </article>
     </div>
     <p style="text-align:center;margin-top:18px;color:var(--muted);font-size:0.85rem">
@@ -264,7 +322,7 @@
     <div class="container">
       <h2>Quer um sistema para o seu negócio?</h2>
       <p>Conte com a IVC Soft House para desenvolver sua solução sob medida e hospedar na sua própria VPS com Coolify.</p>
-      <a href="mailto:contato@ivcsofthouse.com.br" class="btn btn-primary">Enviar e-mail</a>
+      <a href="mailto:ivcsofthouse@gmail.com" class="btn btn-primary">Enviar e-mail</a>
     </div>
   </section>
 
@@ -275,7 +333,7 @@
         <a href="#home">Início</a>
         <a href="#projetos">Projetos</a>
         <a href="#contato">Contato</a>
-        <a href="mailto:contato@ivcsofthouse.com.br">contato@ivcsofthouse.com.br</a>
+        <a href="mailto:ivcsofthouse@gmail.com">ivcsofthouse@gmail.com</a>
       </div>
     </div>
     <p style="margin-top:16px;text-align:center;font-size:0.8rem;color:#94a3b8">© 2026 IVC Soft House. Hospedado em VPS Hostinger com Coolify · ivcsofthouse.com.br</p>
@@ -290,6 +348,33 @@
     })
     // Fecha menu ao clicar em um link
     links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')))
+  </script>
+
+  <!-- Modal projetos em breve -->
+  <div id="comingSoonModal" class="modal">
+    <div class="modal-card">
+      <h3>Este projeto está chegando! 🚀</h3>
+      <p>Estamos finalizando com carinho para você.</p>
+      <p>Quer saber mais ou receber notícias quando estiver disponível? Entre em contato pelo e-mail:</p>
+      <p><strong class="highlight">ivcsofthouse@gmail.com</strong></p>
+      <div class="modal-actions">
+        <a href="mailto:ivcsofthouse@gmail.com?subject=IVC%20Soft%20House%20-%20Projeto%20em%20breve&body=Ol%C3%A1!%20Tenho%20interesse%20em%20um%20projeto%20em%20desenvolvimento%20na%20landing%20page.%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="btn btn-primary">Enviar e-mail</a>
+        <button class="btn-close" onclick="closeComingSoon()">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showComingSoon(e){
+      e.preventDefault();
+      document.getElementById('comingSoonModal').classList.add('show');
+    }
+    function closeComingSoon(){
+      document.getElementById('comingSoonModal').classList.remove('show');
+    }
+    document.getElementById('comingSoonModal').addEventListener('click', function(e){
+      if(e.target.id === 'comingSoonModal') closeComingSoon();
+    });
   </script>
 </body>
 </html>
